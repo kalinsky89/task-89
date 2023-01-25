@@ -8,9 +8,9 @@ export default class Application extends EventEmitter {
     };
   }
 
-  constructor(_loading) {
-    super(_loading);
-    this._loading= _loading;
+  constructor(loading) {
+    super(loading);
+    this.loading= loading;
 
 
     const box = document.createElement("div");
