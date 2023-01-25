@@ -8,9 +8,9 @@ export default class Application extends EventEmitter {
     };
   }
 
-  constructor(loading) {
-    super(loading);
-    this.loading= loading;
+  constructor(_loading) {
+    super(_loading);
+    this._loading= _loading;
 
 
     const box = document.createElement("div");
@@ -36,7 +36,7 @@ export default class Application extends EventEmitter {
       fetch('https://swapi.boom.dev/api/planets?page=6').then((response) => response.json())
     ]);
    
-    // this._stopLoading();
+    this._stopLoading();
     return responce;
   }
 
@@ -57,12 +57,11 @@ async _create(){
 
 
 _startLoading(){
-  const show= new Application ("visible");
-  
+  document.querySelector(".progress").style.display="block";  
 }
 
 _stopLoading(){
-
+  document.querySelector(".progress").style.display="none";  
 }
 
   _render({ name, terrain, population }) {
