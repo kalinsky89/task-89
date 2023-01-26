@@ -8,9 +8,9 @@ export default class Application extends EventEmitter {
     };
   }
 
-  constructor(loading) {
-    super(loading);
-    this.loading= loading;
+  constructor() {
+    super();
+    this._loading= document.getElementsByClassName("progress")[0];
 
 
     const box = document.createElement("div");
@@ -57,11 +57,13 @@ async _create(){
 
 
 _startLoading(){
-  document.querySelector(".progress").style.display="block";  
+  let loader = new Application();
+  loader._loading.style.display="block";  
 }
 
 _stopLoading(){
-  document.querySelector(".progress").style.display="none";  
+  let loader = new Application();
+  loader._loading.style.display="none";  
 }
 
   _render({ name, terrain, population }) {
